@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Flight Dexterity Test | COMPASS Pilot Training</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=B612:wght@400;700&family=B612+Mono:wght@400;700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div id="game-container">
+        <!-- Header -->
+        <div id="header">
+            <h1>FLIGHT DEXTERITY TEST</h1>
+            <div id="stats">
+                <div class="stat-box">
+                    <span class="stat-label">TIME</span>
+                    <span id="timer" class="stat-value">3:30</span>
+                </div>
+                <div class="stat-box">
+                    <span class="stat-label">SCORE</span>
+                    <span id="score" class="stat-value">0</span>
+                </div>
+                <div class="stat-box">
+                    <span class="stat-label">ACCURACY</span>
+                    <span id="accuracy" class="stat-value">100%</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- PFD Display -->
+        <main id="pfd-wrapper">
+            <!-- Speed Tape (Left) -->
+            <div id="speed-tape" class="tape">
+                <div id="speed-target" class="target-value"></div>
+                <canvas id="speed-canvas"></canvas>
+                <div id="speed-box" class="value-box">
+                    <span id="current-speed">300</span>
+                </div>
+            </div>
+
+            <!-- Attitude Indicator (Center) - SQUARE -->
+            <div id="attitude-indicator">
+                <canvas id="attitude-canvas"></canvas>
+                <div id="flight-director">
+                    <div id="fd-horizontal"></div>
+                    <div id="fd-vertical"></div>
+                </div>
+                <div id="aircraft-symbol">
+                    <div class="wing left"></div>
+                    <div class="center-dot"></div>
+                    <div class="wing right"></div>
+                </div>
+            </div>
+
+            <!-- Altitude Tape (Right) -->
+            <div id="altitude-tape" class="tape">
+                <div id="altitude-target" class="target-value"></div>
+                <canvas id="altitude-canvas"></canvas>
+                <div id="altitude-box" class="value-box">
+                    <span id="current-altitude">25000</span>
+                </div>
+            </div>
+        </main>
+
+        <!-- Heading Indicator -->
+        <div id="heading-wrapper">
+            <canvas id="heading-canvas"></canvas>
+            <div id="heading-box" class="value-box">
+                <span id="current-heading">270°</span>
+            </div>
+        </div>
+
+        <!-- Start Overlay -->
+        <div id="start-overlay" class="overlay">
+            <div class="overlay-content">
+                <h2>FLIGHT DEXTERITY TEST</h2>
+                <p class="subtitle">PFD Coordination Training</p>
+
+                <div class="instructions">
+                    <h3>CONTROLS</h3>
+                    <div class="control-grid">
+                        <div class="control-item">
+                            <span class="keys">↑ ↓</span>
+                            <span class="action">Pitch Control</span>
+                        </div>
+                        <div class="control-item">
+                            <span class="keys">← →</span>
+                            <span class="action">Roll Control</span>
+                        </div>
+                        <div class="control-item">
+                            <span class="keys">S / X</span>
+                            <span class="action">Speed Control</span>
+                        </div>
+                    </div>
+                </div>
+
+                <p class="objective">Chase and center the green Flight Director</p>
+                <p class="duration">Duration: 3 minutes 30 seconds</p>
+
+                <button id="start-btn">START TEST</button>
+            </div>
+        </div>
+
+        <!-- End Overlay -->
+        <div id="end-overlay" class="overlay hidden">
+            <div class="overlay-content">
+                <h2>TEST COMPLETE</h2>
+
+                <div class="final-stats">
+                    <div class="final-stat">
+                        <span class="label">Final Score</span>
+                        <span id="final-score" class="value">0</span>
+                    </div>
+                    <div class="final-stat">
+                        <span class="label">Accuracy</span>
+                        <span id="final-accuracy" class="value">0%</span>
+                    </div>
+                    <div class="final-stat">
+                        <span class="label">Rating</span>
+                        <span id="final-rating" class="value rating">A</span>
+                    </div>
+                </div>
+
+                <button id="restart-btn">RESTART</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="game.js"></script>
+</body>
+
+</html>
